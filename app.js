@@ -1,17 +1,14 @@
-//node package manager
-//local dependancy - use it only in this particular project
-//npm i <packageName>
+//event driven programming   
+//used heavily in Node.js 
 
-//global dependancy - use it in any project
-//npm install --g <packageName>
-//sudo install --g <packageName> ...for mac
-
-//package.json -manifest file (stores important info about project/package)
-//manaul approach
-//npm init (step by step, press enter to skip)
-//npm init -y (everything defaultnp)
-
-const loaaaa = require("lodash"); 
-const items = [1, [2, [3, [4]]]];
-const newItems = lo.flattenDeep(items);
-console.log(newItems);
+const EventEmitter = require('events');  //class 
+const customEmitter = new EventEmitter   //instance of the EventEmitter class
+customEmitter.on('response', (name, id) => { 
+    console.log(`data received ${name} with id ${id}`)
+})    
+customEmitter.on('response', () => { 
+    console.log(`some other logic`)
+})   
+//passing in the name of the event, and then a callback function (what to do if the event occurs) 
+ 
+customEmitter.emit('response', "john", 34) //console won't print 'data received' if we dont call this. "response" must be passed. 'r' wont work.
