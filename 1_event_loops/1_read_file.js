@@ -1,4 +1,4 @@
-const { readfile, readFile } = require ('fs') 
+const { readFile } = require ('fs') 
 console.log("started first task")  
 //readFIle is asynchronous 
 readFile('./content/first.txt', 'utf8', (err, result) => { 
